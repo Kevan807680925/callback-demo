@@ -1,8 +1,7 @@
 package com.liuqiwan;
 
-import java.util.concurrent.Callable;
-
 /**
+ * 异步回调
  * @author qiwan liu
  * @date 2018/5/17 16:56
  * @since CallBackDemo 1.0.0-SNAPSHOT
