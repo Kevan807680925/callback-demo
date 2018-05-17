@@ -8,34 +8,27 @@ package com.liuqiwan;
  */
 public class AsyncCallbackTest {
     public static void main(String[] args) {
-        Teacher liu = new Teacher();
-        Student xiaoming = new Student("xiaoming");
-        Student xiaohong = new Student("xiaohong");
+        Leader liu = new Leader();
+        Developer xiaoming = new Developer("xiaoming");
+        Developer xiaohong = new Developer("xiaohong");
 
-        liu.askQuestion(new AskThread(xiaoming, liu, 12, 123));
-        liu.askQuestion(new AskThread(xiaohong, liu, 12, 123));
+        liu.assignTask(new DoJobThread(xiaoming, liu));
+        liu.assignTask(new DoJobThread(xiaohong, liu));
+    }
+
+    static class DoJobThread extends Thread {
+        private Developer student;
+        private Leader teacher;
+
+        @Override
+        public void run() {
+            student.doTask(teacher);
+        }
+
+        public DoJobThread(Developer student, Leader teacher) {
+            this.student = student;
+            this.teacher = teacher;
+        }
     }
 }
 
-class AskThread extends Thread {
-
-    private Student student;
-
-    private Teacher teacher;
-
-    private int a;
-
-    private int b;
-
-    @Override
-    public void run() {
-        student.answerQuestion(teacher, a, b);
-    }
-
-    public AskThread(Student student, Teacher teacher, int a, int b) {
-        this.student = student;
-        this.teacher = teacher;
-        this.a = a;
-        this.b = b;
-    }
-}

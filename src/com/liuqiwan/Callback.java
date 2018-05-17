@@ -6,5 +6,5 @@ package com.liuqiwan;
  * @since CallBackDemo 1.0.0-SNAPSHOT
  */
 public interface Callback {
-    void response(String string);
+    void receiveNotification(String string);
 }

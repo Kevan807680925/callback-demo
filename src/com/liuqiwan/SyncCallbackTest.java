@@ -7,10 +7,10 @@ package com.liuqiwan;
  */
 public class SyncCallbackTest {
     public static void main(String[] args) {
-        Teacher liu = new Teacher();
-        Student xiaoming = new Student("xiaoming");
-        Student xiaohong = new Student("xiaohong");
-        liu.askQuestion(xiaoming);
-        liu.askQuestion(xiaohong);
+        Leader leader = new Leader();
+        Developer xiaoming = new Developer("xiaoming");
+        Developer xiaohong = new Developer("xiaohong");
+        leader.assignTask(xiaoming);
+        leader.assignTask(xiaohong);
     }
 }
